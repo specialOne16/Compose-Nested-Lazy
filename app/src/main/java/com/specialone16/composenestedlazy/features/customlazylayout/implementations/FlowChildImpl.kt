@@ -1,0 +1,39 @@
+package com.specialone16.composenestedlazy.features.customlazylayout.implementations
+
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowColumn
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyItemScope
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import com.specialone16.composenestedlazy.features.customlazylayout.ComposeNestedLazy
+
+class FlowChildImpl : ComposeNestedLazy<LazyItemScope, ColumnScope>() {
+
+    @Composable
+    override fun ParentLazy(
+        count: Int,
+        modifier: Modifier,
+        content: @Composable LazyItemScope.(group: Int) -> Unit
+    ) {
+        LazyColumn(modifier) {
+            items(count) { content(it) }
+        }
+    }
+
+    @OptIn(ExperimentalLayoutApi::class)
+    @Composable
+    override fun LazyItemScope.ChildLazy(
+        count: Int,
+        modifier: Modifier,
+        content: @Composable() (ColumnScope.(group: Int) -> Unit)
+    ) {
+        FlowColumn(modifier) {
+            repeat(count) {
+                content(it)
+                childItemComposed()
+            }
+        }
+    }
+}
