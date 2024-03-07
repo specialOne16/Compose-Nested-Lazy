@@ -37,31 +37,32 @@ fun CommentImplementation(
     modifier: Modifier = Modifier
 ) {
     when (attr) {
+        // Solusi stackoverflow
         is CommentImplementationAttr.Flatten -> FlattenComment(
             list = attr.items,
             modifier = modifier
         )
-
+        // Implementasi awal
         is CommentImplementationAttr.Nested -> NestedComment(
             list = attr.items,
             modifier = modifier
         )
-
+        // Alternatif solusi 1
         is CommentImplementationAttr.PartialFlattenComment -> PartialFlattenComment(
             list = attr.items,
             modifier = modifier
         )
-
+        // Alternatif solusi 2
         is CommentImplementationAttr.Recycle -> RecycleComment(
             list = attr.items,
             modifier = modifier
         )
-
+        // Alternatif solusi 4
         is CommentImplementationAttr.HybridRecycle -> HybridAndRecycleComment(
             list = attr.items,
             modifier = modifier
         )
-
+        // Alternatif solusi 3
         is CommentImplementationAttr.GoneReply -> GoneReplyComment(
             list = attr.items,
             modifier = modifier

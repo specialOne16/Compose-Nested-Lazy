@@ -1,7 +1,6 @@
 package com.specialone16.composenestedlazy.features.comments.impl
 
 import androidx.activity.compose.ReportDrawn
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -51,8 +50,8 @@ fun PartialFlattenComment(
             }
 
             komentar.balasan.chunked(replyPerChunk).forEach { balasanKomentarChunk ->
-                if (showReply[idx]) {
-                    item {
+                item {
+                    if (showReply[idx]) {
                         balasanKomentarChunk.forEach { balasanKomentar ->
                             ImageWithText(
                                 upperText = balasanKomentar.nama,
