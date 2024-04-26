@@ -8,6 +8,7 @@ import com.specialone16.composenestedlazy.features.comments.impl.HybridAndRecycl
 import com.specialone16.composenestedlazy.features.comments.impl.PartialFlattenComment
 import com.specialone16.composenestedlazy.features.comments.impl.NestedComment
 import com.specialone16.composenestedlazy.features.comments.impl.RecycleComment
+import com.specialone16.composenestedlazy.features.comments.impl.RecyclerViewComment
 
 
 data class Komentar(
@@ -37,13 +38,13 @@ fun CommentImplementation(
     modifier: Modifier = Modifier
 ) {
     when (attr) {
-        // Solusi stackoverflow
-        is CommentImplementationAttr.Flatten -> FlattenComment(
+        // Implementasi awal
+        is CommentImplementationAttr.Nested -> NestedComment(
             list = attr.items,
             modifier = modifier
         )
-        // Implementasi awal
-        is CommentImplementationAttr.Nested -> NestedComment(
+        // Implementasi yang sudah ada
+        is CommentImplementationAttr.Flatten -> FlattenComment(
             list = attr.items,
             modifier = modifier
         )
@@ -57,13 +58,13 @@ fun CommentImplementation(
             list = attr.items,
             modifier = modifier
         )
-        // Alternatif solusi 4
-        is CommentImplementationAttr.HybridRecycle -> HybridAndRecycleComment(
+        // Alternatif solusi 3
+        is CommentImplementationAttr.GoneReply -> GoneReplyComment(
             list = attr.items,
             modifier = modifier
         )
-        // Alternatif solusi 3
-        is CommentImplementationAttr.GoneReply -> GoneReplyComment(
+        // Alternatif solusi 4
+        is CommentImplementationAttr.HybridRecycle -> HybridAndRecycleComment(
             list = attr.items,
             modifier = modifier
         )

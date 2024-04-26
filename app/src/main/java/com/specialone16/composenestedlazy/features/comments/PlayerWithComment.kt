@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -60,7 +61,7 @@ fun PlayerWithComment(playerView: Player) {
             modifier = Modifier.aspectRatio(16 / 9f)
         )
         CommentImplementation(
-            attr = CommentImplementationAttr.PartialFlattenComment(
+            attr = CommentImplementationAttr.HybridRecycle(
                 items = List(COMMENT_COUNT) { komentarIdx ->
                     Komentar(
                         nama = "a_nice_user_$komentarIdx",

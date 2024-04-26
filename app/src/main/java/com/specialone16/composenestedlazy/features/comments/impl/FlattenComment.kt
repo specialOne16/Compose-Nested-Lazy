@@ -43,9 +43,6 @@ fun FlattenComment(
                         TipePesan.BalasanKomentar(komentarId)
                     )
                 )
-//                repeat(4) {
-//                    add(Pesan("", "", null))
-//                }
             }
         }
     }
